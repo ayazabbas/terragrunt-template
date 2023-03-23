@@ -11,10 +11,10 @@ remote_state {
     if_exists = "overwrite_terragrunt"
   }
   config = {
-    bucket = local.TERRAFORM_STATE_BUCKET
-
-    key    = "${path_relative_to_include()}/terraform.tfstate"
-    region = local.AWS_REGION
+    bucket         = local.TERRAFORM_STATE_BUCKET
+    dynamodb_table = local.DYNAMODB_TABLE
+    key            = "${path_relative_to_include()}/terraform.tfstate"
+    region         = local.AWS_REGION
   }
 }
 
